@@ -2,33 +2,30 @@ const unorderedList = document.querySelector("ul");
 const input = document.querySelector("#item");
 const button = document.querySelector("button");
 
-function clickButton (event) {
-    // event.preventDefault();
-    button.addEventListener("click", () => {
-        const currentValue = input.value;
-        input.value = "";
+button.addEventListener("click", (event) => {
+    event.preventDefault();
 
-        const list = document.createElement("li");
-        const span = document.createElement("span");
-        const newButton = document.createElement("button");
+    const currentValue = input.value;
+    input.value = "";
 
-        unorderedList.appendChild(span);
-        unorderedList.appendChild(newButton)
+    const list = document.createElement("li");
+    const span = document.createElement("span");
+    const newButton = document.createElement("button");
 
-        span.textContent = currentValue;
-        newButton.textContent = "Delete";
-        unorderedList.appendChild(list);
+    list.appendChild(span);
+    span.textContent = currentValue;
+    list.appendChild(newButton)
+    newButton.textContent = "Delete";
+    unorderedList.appendChild(list);
 
-        newButton.addEventListener("click", () => {
-            list.remove();
-            span.remove();
-            newButton.remove();
-        })
+    newButton.addEventListener("click", () => {
+        list.remove();
+        span.remove();
+        newButton.remove();
+    })
 
-        input.focus();
-    });
-}
+    input.focus();
+});
 
-clickButton();
 
 
