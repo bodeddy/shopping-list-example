@@ -2,7 +2,7 @@ const unorderedList = document.querySelector("ul");
 const input = document.querySelector("#item");
 const button = document.querySelector("button");
 
-button.addEventListener("click", (event) => {
+function createList (event) {
     event.preventDefault();
 
     const currentValue = input.value;
@@ -25,7 +25,9 @@ button.addEventListener("click", (event) => {
     })
 
     input.focus();
-});
+}
+
+button.addEventListener("click", createList);
 
 
 
